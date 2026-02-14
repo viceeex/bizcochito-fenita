@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Bizcochito & Feñita 💜</title>
+
+<style>
+body{
+  margin:0;
+  font-family:'Poppins',sans-serif;
+  background:linear-gradient(135deg,#6a0dad,#ff4d6d,#ffd1dc);
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  color:white;
+}
+
+.container{
+  background:rgba(255,255,255,0.15);
+  backdrop-filter: blur(10px);
+  border-radius:25px;
+  padding:25px;
+  width:90%;
+  max-width:420px;
+  text-align:center;
+  animation:fadeIn 1s ease;
+}
+
+h1{
+  color:#fff;
+}
+
+p{
+  font-size:17px;
+}
+
+.gallery img{
+  width:100%;
+  border-radius:15px;
+  margin:10px 0;
+  box-shadow:0 8px 20px rgba(0,0,0,0.3);
+}
+
+button{
+  border:none;
+  padding:12px 20px;
+  border-radius:20px;
+  font-size:16px;
+  cursor:pointer;
+  margin:10px;
+}
+
+#si{
+  background:#ff4d6d;
+  color:white;
+}
+
+#no{
+  background:#fff;
+  color:#333;
+  position:absolute;
+}
+
+.music{
+  background:#6a0dad;
+  color:white;
+}
+
+@keyframes fadeIn{
+  from{opacity:0; transform:scale(0.9);}
+  to{opacity:1; transform:scale(1);}
+}
+
+.heart{
+  position:fixed;
+  bottom:0;
+  font-size:22px;
+  animation:float 4s linear;
+}
+
+@keyframes float{
+  from{transform:translateY(0); opacity:1;}
+  to{transform:translateY(-800px); opacity:0;}
+}
+</style>
+</head>
+
+<body>
+
+<div class="container" id="card">
+  <h1>Hola Feñita 💜</h1>
+  <p>
+    Desde que llegaste a mi vida,<br>
+    todo es más lindo, más suave,<br>
+    más <strong>bizcochito</strong>.
+  </p>
+
+  <div class="gallery">
+    <img src="foto1.jpg">
+    <img src="foto2.jpg">
+    <img src="foto3.jpg">
+  </div>
+
+  <p>
+    Cada recuerdo contigo es mi favorito,<br>
+    y quiero seguir creando miles más contigo.
+  </p>
+
+  <button class="music" onclick="playMusic()">🎶 Nuestra canción</button>
+
+  <p><strong>¿Quieres ser mi San Valentín? 💘</strong></p>
+
+  <button id="si">Sí 💕</button>
+  <button id="no">No 🙄</button>
+</div>
+
+<audio id="song">
+  <source src="https://www.youtube.com/watch?v=JvXn2cFfJ0A">
+</audio>
+
+<script>
+const noBtn=document.getElementById("no");
+const siBtn=document.getElementById("si");
+
+noBtn.addEventListener("mouseover",()=>{
+  noBtn.style.left=Math.random()*(window.innerWidth-100)+"px";
+  noBtn.style.top=Math.random()*(window.innerHeight-50)+"px";
+});
+
+siBtn.addEventListener("click",()=>{
+  document.getElementById("card").innerHTML=`
+    <h1>💜 Sabía que dirías que sí 💜</h1>
+    <p>
+      Gracias por ser mi feñita,<br>
+      mi lugar seguro,<br>
+      mi bizcochito favorito.
+    </p>
+    <p>Te amo infinito 💕</p>
+  `;
+  hearts();
+});
+
+function hearts(){
+  setInterval(()=>{
+    const h=document.createElement("div");
+    h.className="heart";
+    h.innerHTML="💖";
+    h.style.left=Math.random()*window.innerWidth+"px";
+    document.body.appendChild(h);
+    setTimeout(()=>h.remove(),4000);
+  },250);
+}
+
+function playMusic(){
+  window.open("https://www.youtube.com/watch?v=JvXn2cFfJ0A","_blank");
+}
+</script>
+
+</body>
+</html>
